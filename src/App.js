@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import Navbar from './components/navbar';
+import { useState } from "react";
+const App=()=>{
+    const [isLogin,setIsLogin]=useState(false);
+    const handleLogin=()=>{
+        setIsLogin(true);
+    }
+    return (<div>
+        <Navbar isLogin={isLogin}
+        handleLogin={handleLogin}/>
+        
+        <h1>this is APP Component</h1>
     </div>
-  );
+    );
 }
-
 export default App;
