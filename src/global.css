@@ -1,0 +1,14 @@
+.nav-left{
+  display: flex;
+  gap: 10px;
+}
+.nav-right{
+  display: flex;
+  gap: 5px;
+}
+.nav-name{
+  color:white;
+}
+.nav-name.active{
+  color:red;
+}
