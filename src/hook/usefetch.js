@@ -23,5 +23,5 @@ export const useGet= (url) => {
     getData();
   }, [url]);
 
-  return [data,isLoading];
+  return [data,isLoading,getData];
 };

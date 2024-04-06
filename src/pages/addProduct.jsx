@@ -33,8 +33,8 @@ function AddProduct() {
     }
   }
   //manggil ini untuk keluarin isi nama toko di form label store
-  const data=useGet('http://localhost:8000/store')
-  console.log(data);
+  const [data,isLoading]=useGet('http://localhost:8000/store')
+  //console.log(data);
   return (
     <Layout title="Add Product">
       <Link to="/product">back</Link>
@@ -52,11 +52,13 @@ function AddProduct() {
           <input type='number' name="stock" value={form.stock} onChange={handleclick}  />
         </div>
         <div>
-          <label htmlFor=''>Store ID : </label>
-          <select name="" id="">
-          <option value="">Pilih</option>
-          {data?.map((item)=>
+          <label htmlFor=''>Store: </label>
+          <select name="store_id" value = {form.store_id} onChange={handleclick}>
+          <option>Pilih</option>
           {
+            isLoading ? 'Loading . . . ' : data?.length === 0 ? 'Data Kosong' :
+            data&&data.map((item)=>
+          { 
             return (
             <option value={item.id} key={item.id}>{item.name}</option>
             )

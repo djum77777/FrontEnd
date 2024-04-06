@@ -1,12 +1,11 @@
 //pakai data API dari project MVC
 import axios from 'axios'
-import React,{useEffect, useState} from 'react'
+import React from 'react'
 import Layout from '../components/Layout'
-import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useGet } from '../hook/usefetch';
 
 function Product() {
-
   // const [data, setData] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
 
@@ -28,7 +27,8 @@ function Product() {
   //     getData()
   // }, [])
 
-  const [data, isLoading, getData] = useGet('http://localhost:8000/product')
+  //use our own created hook
+  const [data, isLoading,getData] = useGet('http://localhost:8000/product')
 
   const navigate = useNavigate()
 
@@ -36,12 +36,12 @@ function Product() {
       try {
           await axios.delete(`http://localhost:8000/deleteProduct/${id}`)
           alert('delete data berhasil')
-            getData();
+          getData();
         } catch (error) {
             console.log(error);
         }
     }
-
+    
 return (
   <Layout title='Produk'>
   <div>
@@ -56,6 +56,7 @@ return (
                   <div key={item.id}>
                       <p>Name: {item.name}</p>
                       <p>Price: {item.price}</p>
+                      <p>Store ID: {item.store_id}</p>
                       <div style={{display: 'flex', gap: 10}}>
                           <button onClick={() => navigate(`/edit-product/${item.id}`)}>Edit</button>
                           <button onClick={() => handleDelete(item.id)}>Delete</button>
