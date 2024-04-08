@@ -12,6 +12,7 @@ function Navbar(props) {
           <NavLink className="nav-name" to="/upload">Upload</NavLink>
           <NavLink className="nav-name" to="/data">Data</NavLink>
           <NavLink className="nav-name" to="/product">Product</NavLink>
+          <NavLink className="nav-name" to="/chart">Chart</NavLink>
           <NavLink className="nav-name" to="/about">About</NavLink>
         </div>
         

@@ -13,6 +13,8 @@ import { GetAxios } from './pages/data';
 import GetProduct from './pages/product';
 import AddProduct from './pages/addProduct';
 import EditProduct from './pages/editProduct';
+import Chart, { ChartAPI, ChartSix } from './pages/chart';
+import MyChart from './pages/chart';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
       <Route path="/product" element={<GetProduct/>}/>
       <Route path="/add-product" element={<AddProduct/>}/>
       <Route path="/edit-product/:id" element={<EditProduct/>}/>
+      <Route path="/deleteProduct/:id" element={<delete/>}/>
+      <Route path="/chart" element={<ChartSix/>} />  
       <Route path="/about" element={<About/>} />  
       <Route path="/user-detail/:userid" element={<UserDetail/>} />
     </Routes>
